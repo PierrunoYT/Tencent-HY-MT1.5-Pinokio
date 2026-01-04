@@ -232,7 +232,7 @@ def translate_text(source_text, source_language, target_language,
 def create_interface():
     """Create the Gradio interface"""
     
-    with gr.Blocks(title="HY-MT1.5 Translation") as demo:
+    with gr.Blocks(title="HY-MT1.5 Translation", theme=gr.themes.Soft()) as demo:
         gr.Markdown(
             """
             # 🌐 HY-MT1.5 Translation Interface
@@ -409,7 +409,6 @@ if __name__ == "__main__":
         share=args.share,
         server_name=args.server_name,
         server_port=args.server_port,
-        show_error=True,
-        theme=gr.themes.Soft()
+        show_error=True
     )
 
