@@ -232,7 +232,7 @@ def translate_text(source_text, source_language, target_language,
 def create_interface():
     """Create the Gradio interface"""
     
-    with gr.Blocks(title="HY-MT1.5 Translation", theme=gr.themes.Soft()) as demo:
+    with gr.Blocks(title="HY-MT1.5 Translation") as demo:
         gr.Markdown(
             """
             # 🌐 HY-MT1.5 Translation Interface
@@ -400,7 +400,7 @@ if __name__ == "__main__":
     
     parser = argparse.ArgumentParser(description="HY-MT1.5 Gradio Interface")
     parser.add_argument("--share", action="store_true", help="Create a public link")
-    parser.add_argument("--server-name", type=str, default="0.0.0.0", help="Server name")
+    parser.add_argument("--server-name", type=str, default="127.0.0.1", help="Server name")
     parser.add_argument("--server-port", type=int, default=7860, help="Server port")
     args = parser.parse_args()
     
@@ -409,6 +409,7 @@ if __name__ == "__main__":
         share=args.share,
         server_name=args.server_name,
         server_port=args.server_port,
-        show_error=True
+        show_error=True,
+        theme=gr.themes.Soft()
     )
 
