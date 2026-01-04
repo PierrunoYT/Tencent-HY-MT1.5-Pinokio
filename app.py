@@ -142,6 +142,7 @@ def translate_text(source_text, source_language, target_language,
                   model_choice, translation_mode, terminology, context,
                   temperature, top_p, top_k, repetition_penalty):
     """Translate text using the model"""
+    global model, tokenizer, model_name
     
     if not source_text.strip():
         return "Please enter text to translate.", "Ready. Enter text to translate."
