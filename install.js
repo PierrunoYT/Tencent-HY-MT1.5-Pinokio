@@ -1,23 +1,23 @@
 module.exports = {
   run: [
-    // Install PyTorch with CUDA support first
     {
       method: "script.start",
       params: {
         uri: "torch.js",
         params: {
           venv: "env",
-          xformers: false   // Not needed for translation models
+          path: "app",
+          xformers: false
         }
       }
     },
-    // Install HY-MT1.5 dependencies from requirements.txt
     {
       method: "shell.run",
       params: {
         venv: "env",
+        path: "app",
         message: [
-          "pip install -r requirements.txt"
+          "uv pip install -r requirements.txt"
         ],
       }
     },

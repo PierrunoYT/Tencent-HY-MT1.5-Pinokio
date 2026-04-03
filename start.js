@@ -1,23 +1,21 @@
 module.exports = {
   daemon: true,
   run: [
-    // Launch HY-MT1.5 Gradio Web UI
     {
       method: "shell.run",
       params: {
         venv: "env",
         env: { },
+        path: "app",
         message: [
           "python app.py"
         ],
         on: [{
-          // Monitor for Gradio's HTTP URL output
-          "event": "/http:\\/\\/[^\\s\\/]+:\\d{2,5}(?=[^\\w]|$)/",
-          "done": true
+          event: "/http:\/\/[0-9.:]+/",
+          done: true
         }]
       }
     },
-    // Set the local URL variable for the "Open Web UI" button
     {
       method: "local.set",
       params: {
@@ -32,4 +30,3 @@ module.exports = {
     }
   ]
 }
-

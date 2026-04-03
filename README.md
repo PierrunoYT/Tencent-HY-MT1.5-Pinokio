@@ -37,18 +37,27 @@ Both models support mutual translation across **33 languages** and include featu
 
 1. **Clone or download this repository**
 
-2. **Install dependencies**:
+2. **Install dependencies** (from the `app` folder):
 ```bash
+cd app
+uv pip install -r requirements.txt
+```
+
+Or with pip:
+```bash
+cd app
 pip install -r requirements.txt
 ```
 
 3. **Run the interface**:
 ```bash
+cd app
 python app.py
 ```
 
 Or use the helper script:
 ```bash
+cd app
 python run_gradio.py
 ```
 
@@ -139,12 +148,13 @@ You can adjust these parameters in the interface to fine-tune translation qualit
 ## Command Line Options
 
 ```bash
+cd app
 python app.py --help
 ```
 
 Options:
 - `--share`: Create a public Gradio link
-- `--server-name`: Server hostname (default: 0.0.0.0)
+- `--server-name`: Server hostname (default: 127.0.0.1)
 - `--server-port`: Server port (default: 7860)
 
 ## Pinokio Commands
